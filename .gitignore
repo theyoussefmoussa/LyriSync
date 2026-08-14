@@ -1,0 +1,20 @@
+# Virtual environment
+venv/
+
+# Environment variables (contains your local paths)
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Output — downloaded .lrc files shouldn't be tracked, they're generated, not source
+Tests/
+*.lrc
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
