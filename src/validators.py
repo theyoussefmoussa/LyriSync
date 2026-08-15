@@ -1,3 +1,4 @@
+from src.constants import SONG_LENGTH
 def get_valid_input(prompt):
     print("Enter 'help' for guidance or 'exit' to quit.")
     while True:
@@ -11,8 +12,8 @@ def get_valid_input(prompt):
             exit(0)
 
         # Validate input length
-        if len(user_input) > 50:
-            print(f"Input is too long. Please enter a shorter value (max {50} characters).")
+        if len(user_input) > SONG_LENGTH:
+            print(f"Input is too long. Please enter a shorter value (max {SONG_LENGTH} characters).")
             continue
          # Check for help command
         if user_input.lower() == "help":

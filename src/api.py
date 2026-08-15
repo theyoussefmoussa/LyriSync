@@ -1,6 +1,5 @@
 import requests
-TIMEOUT = 10  # seconds
-
+from src.constants import TIMEOUT
 url = "https://lrclib.net/api/search"
 
 
