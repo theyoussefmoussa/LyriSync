@@ -23,6 +23,7 @@ lyricSync/
 │   ├── api.py         # search and fetch lyrics from lrclib.net
 │   ├── matching.py    # filter and match the desired song
 │   └── files.py       # file/folder handling
+│   └── validators.py   # validation Functions
 ├── Tests/                # output .lrc files land here
 ├── main.py             # entry point
 ├── requirements.txt
@@ -63,11 +64,12 @@ python main.py
 ### Example
 
 ```
-Enter track name: lose yourself
-Enter artist name: eminem
-Song Saved: Tests/Eminem - Lose Yourself.lrc
-```
-
+Enter 'help' for guidance or 'exit' to quit.
+Enter track name: Lose Yourself
+Enter artist name: Eminem
+Song saved in {path}/tests/Eminem - Lose Yourself.lrc
+ ```
+> **Note:** `{path}` is replaced with the path set in your local `.env` file.
 ## Roadmap
 
 - [x] Minimal structure (initial)
