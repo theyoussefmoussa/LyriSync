@@ -24,6 +24,7 @@ lyricSync/
 │   ├── matching.py    # filter and match the desired song
 │   └── files.py       # file/folder handling
 │   └── validators.py   # validation Functions
+│   └── constants.py   # Shared Variables and Functions
 ├── Tests/                # output .lrc files land here
 ├── main.py             # entry point
 ├── requirements.txt
