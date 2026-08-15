@@ -1,4 +1,5 @@
 import requests
+TIMEOUT = 10  # seconds
 
 url = "https://lrclib.net/api/search"
 
@@ -15,8 +16,37 @@ def search_lyrics(track_name, artist_name, album_name=None):
     if album_name:
         params['album_name'] = album_name
 
-    response = requests.get(url, params=params)
-    songs = response.json()
+    try: 
+        response = requests.get(
+            url, 
+            params=params,
+            timeout=TIMEOUT
+        )
+        response.raise_for_status()  # Raise an exception for HTTP errors   
+        songs = response.json()
+        return songs
 
-    return songs
+
+    # Errors Types 
+    except requests.exceptions.Timeout:
+        print("Request timed out.")
+        return []
+
+    except requests.exceptions.ConnectionError:
+        print("Could not connect to LRCLIB.")
+        return []
+
+    except requests.exceptions.HTTPError as e:
+        print(f"HTTP error: {e}")
+        return []
+
+    except ValueError:
+        print("LRCLIB returned invalid JSON.")
+        return []
+
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
+        return []
+        
+
 
