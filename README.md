@@ -5,7 +5,7 @@
 ![Requests](https://img.shields.io/badge/Requests-000000?style=flat-square&logo=python&logoColor=white)
 ![dotenv](https://img.shields.io/badge/python--dotenv-ECD53F?style=flat-square&logo=dotenv&logoColor=black)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-
+# Add Mutagen here
 A CLI tool that searches for song lyrics online through the [lrclib.net](https://lrclib.net/api/search) API and saves them as `.lrc` (synced lyrics) files.
 
 ## Features
@@ -19,13 +19,15 @@ A CLI tool that searches for song lyrics online through the [lrclib.net](https:/
 ```
 lyricSync/
 ├── src/
-│   ├── __init__.py
-│   ├── api.py         # search and fetch lyrics from lrclib.net
-│   ├── matching.py    # filter and match the desired song
-│   └── files.py       # file/folder handling
+│   └── __init__.py
+│   ├── api.py          # search and fetch lyrics from lrclib.net
+│   ├── cli.py # orchestrates the single-song interactive workflow
+│   └── constants.py    # Shared Variables and Functions
+│   └── files.py        # file/folder handling
+│   └── matching.py     # filter and match the desired song
+│   └── pipeline.py     # orchestrates the folder-scan workflow (scan -> search -> match -> save)
 │   └── validators.py   # validation Functions
-│   └── constants.py   # Shared Variables and Functions
-├── Tests/                # output .lrc files land here
+├── Tests/              # output .lrc files land here
 ├── main.py             # entry point
 ├── requirements.txt
 ├── .env
@@ -62,20 +64,33 @@ python main.py
 > ```
 > then retry activation.
 
-### Example
+### Example: single-song lookup
 
 ```
-Enter 'help' for guidance or 'exit' to quit.
+Welcome to the Lyric Sync Tool!
+Type 'exit' to exit the program
+Enter '1' for a specific song or '2' for a folder scan: 1
 Enter track name: Lose Yourself
 Enter artist name: Eminem
-Song saved in {path}/tests/Eminem - Lose Yourself.lrc
+Song saved in {path}/Eminem - Lose Yourself.lrc
  ```
 > **Note:** `{path}` is replaced with the path set in your local `.env` file.
+
+### Example: folder scan
+```
+Enter '1' for a specific song or '2' for a folder scan: 2
+Do you want to scan the default testing folder or specify a folder? (default/specific): specific
+Enter the folder path: /home/youssef/Music
+Scanned File: Eminem - Lose Yourself.mp3
+Best Match: Lose Yourself by Eminem from album 8 Mile
+Scanned File: Untagged Track.mp3
+Skipping Untagged Track.mp3: no ID3 tag found.
+```
 ## Roadmap
 
 - [x] Minimal structure (initial)
 - [X] Validate user input
-- [ ] Search for songs in a local folder, then download matching `.lrc` files
+- [X] Search for songs in a local folder, then download matching `.lrc` files
 - [ ] Connect with a database
 - [ ] Build a UI (after database integration)
 

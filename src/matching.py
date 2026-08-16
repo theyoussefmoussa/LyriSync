@@ -3,6 +3,9 @@ def pick_best_match(results: list, artist_name: str):
     Filter candidates down to a usable match.
     Returns the chosen result dict, or None if nothing qualifies.
     """
+    if not results: 
+        print("No Songs Found, Check Your Internet Connection")
+        return 
     # 1. Drop instrumental results
     results = [song for song in results if not song.get("instrumental")]
 

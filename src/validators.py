@@ -1,6 +1,5 @@
 from src.constants import SONG_LENGTH
 def get_valid_input(prompt):
-    print("Enter 'help' for guidance or 'exit' to quit.")
     while True:
         user_input = input(prompt).strip()
         if not user_input:
@@ -23,3 +22,13 @@ def get_valid_input(prompt):
 
         # return the valid input
         return user_input
+
+
+
+def get_tag(tags, key):
+    """
+    Helper function to safely get a tag value from EasyID3 tags.
+    Returns the first value if it exists, otherwise returns None.
+    """
+    value = tags.get(key)
+    return value[0] if value else None
