@@ -1,11 +1,13 @@
 # LyricSync
 
+# LyricSync
+
 ![Python](https://img.shields.io/badge/Python-3.14-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Status](https://img.shields.io/badge/status-in%20development-yellow?style=flat-square)
 ![Requests](https://img.shields.io/badge/Requests-000000?style=flat-square&logo=python&logoColor=white)
+![Mutagen](https://img.shields.io/badge/Mutagen-FF6F00?style=flat-square&logo=python&logoColor=white)
 ![dotenv](https://img.shields.io/badge/python--dotenv-ECD53F?style=flat-square&logo=dotenv&logoColor=black)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-# Add Mutagen here
 A CLI tool that searches for song lyrics online through the [lrclib.net](https://lrclib.net/api/search) API and saves them as `.lrc` (synced lyrics) files.
 
 ## Features
