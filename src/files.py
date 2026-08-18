@@ -63,8 +63,13 @@ def scan_folder(folder_path):
 
 def save_scanned_files(songs, output_file):
     """
-    Save the scanned song metadata to a text file.
+    Save scanned song info to a text file.
+    Handles both song dicts (from scan_folder) and plain filename strings (not-found list).
     """
     with open(output_file, "w", encoding="utf-8") as f:
         for song in songs:
-            f.write(str(song) + "\n")
+            if isinstance(song, dict):
+                line = f"{song['artist']} - {song['title']} ({song['album']}, {song['year']})"
+            else:
+                line = song
+            f.write(line + "\n")
