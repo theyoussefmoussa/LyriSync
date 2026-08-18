@@ -18,3 +18,9 @@ Tests/
 
 # OS junk
 .DS_Store
+
+
+# txt files 
+
+not_found_songs.txt
+found_songs.txt
