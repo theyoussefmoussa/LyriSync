@@ -24,6 +24,13 @@ def get_valid_input(prompt):
         return user_input
 
 
+def print_separator(char="-", length=30):
+    """
+    Print a horizontal separator line for readability in terminal output.
+    """
+    print(char * length)
+
+
 
 def get_tag(tags, key):
     """
